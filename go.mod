@@ -6,7 +6,6 @@ require (
 	github.com/atotto/clipboard v0.1.4
 	github.com/icza/gox v0.0.0-20230117093757-93f961aa2755
 	github.com/manifoldco/promptui v0.9.0
-	github.com/schollz/closestmatch v2.1.0+incompatible
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.15.0
 	gopkg.in/yaml.v2 v2.4.0

@@ -8,6 +8,7 @@
 
 
 ## Roadmap
+- fine tuning
 - proper handling of duplicates
 - handle critical values like credentials
 - statistics
