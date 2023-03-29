@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/manifoldco/promptui"
@@ -17,7 +18,7 @@ func ShowSelectionView(entries Entries) (*Entry, error) {
 
 		Details: `
 --------- Entry ----------
-{{ "Value:" | faint }}	{{ .Value }}
+{{ "Value:" | faint }}	{{ .Value100 }}
 {{ "Date:" | faint }}	{{ .DateFormatted }}
 {{ "Count:" | faint }}	{{ .Count }}`,
 	}
@@ -29,6 +30,10 @@ func ShowSelectionView(entries Entries) (*Entry, error) {
 
 		return strings.Contains(name, input)
 	}
+
+	sort.Slice(entries.Values, func(i, j int) bool {
+		return entries.Values[i].Date.After(entries.Values[j].Date)
+	})
 
 	prompt := promptui.Select{
 		Label:     "Entries",

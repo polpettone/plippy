@@ -30,6 +30,14 @@ func (e Entry) ShortValue() string {
 	return e.Value
 }
 
+func (e Entry) Value100() string {
+	maxLen := 100
+	if len(e.Value) > maxLen {
+		return string(e.Value[0:maxLen])
+	}
+	return e.Value
+}
+
 func NewEntry(value string) Entry {
 	return Entry{
 		Value: value,
