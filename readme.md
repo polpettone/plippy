@@ -15,12 +15,20 @@
 
 ## Usage
 
-- show usage ```plippy --help```
-- run plippy to track your clipboard: ```plippy start &```
-- choose an entry ```plippy list``` opens an interactive list where you can choose an entry
+- show usage 
+  - ```plippy --help```
+- run plippy to track your clipboard: 
+  - ```plippy start &```
+  - *Attention*: running plippy will track all your copies to clipboard, also sensitive ones like credentials
+    - all entries will go to $HOME/.config/plippy/contents.yaml
+    - contents.yaml will contain copied credentials in plain text
+- choose an entry 
+  - ```plippy list``` opens an interactive list where you can choose an entry
   - hit / to search for an entry in the list
   - hit enter to select an entry, this entry will go to your current system clipboard
 
+- stop plippy
+  - kill the plippy process
 
 
 ## Roadmap
