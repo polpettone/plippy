@@ -57,7 +57,13 @@ func (entries Entries) Add(value string) *Entries {
 }
 
 func List() (*Entries, error) {
-	entries, err := loadEntries(plippyFile)
+
+	f, err := plippyFile()
+	if err != nil {
+		return nil, err
+	}
+
+	entries, err := loadEntries(f)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,12 @@ func List() (*Entries, error) {
 
 func Search(query string, closestN int) (*Entries, error) {
 
-	entries, err := loadEntries(plippyFile)
+	f, err := plippyFile()
+	if err != nil {
+		return nil, err
+	}
+
+	entries, err := loadEntries(f)
 	if err != nil {
 		return nil, err
 	}
@@ -96,14 +107,18 @@ func StartPlippy() error {
 			latestContent = content
 		}
 
-		entries, err := loadEntries(plippyFile)
+		f, err := plippyFile()
+		if err != nil {
+			return err
+		}
+		entries, err := loadEntries(f)
 		entries = entries.Add(content)
 
 		if err != nil {
 			return err
 		}
 
-		err = saveContent(plippyFile, *entries)
+		err = saveContent(f, *entries)
 		if err != nil {
 			return err
 		}
