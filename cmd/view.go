@@ -41,6 +41,7 @@ func ShowSelectionView(entries Entries) (*Entry, error) {
 		Templates: templates,
 		Size:      10,
 		Searcher:  searcher,
+		IsVimMode: true,
 	}
 
 	i, _, err := prompt.Run()
