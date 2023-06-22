@@ -111,7 +111,12 @@ func StartPlippy() error {
 		if err != nil {
 			return err
 		}
+
 		entries, err := loadEntries(f)
+		if err != nil {
+			return err
+		}
+
 		entries = entries.Add(content)
 
 		if err != nil {
